@@ -142,10 +142,10 @@ const pageSize = 3;
 const getStartIndexByPage = function (page) {
     console.log(pageSize * (page-1));
   };
-  
-  getStartIndexByPage(1); // 0
-  getStartIndexByPage(2); // 3
-  getStartIndexByPage(3); // 6
+
+getStartIndexByPage(1); // 0
+getStartIndexByPage(2); // 3
+getStartIndexByPage(3); // 6
 
 // Quiz 14
 // 전화번호 패턴 검사
@@ -159,10 +159,13 @@ console.log(IsValidatePhoneNumber(phoneNumber))
 // Quiz 15
 // 객체값 변경
 const user = { nick: "nio", age: 20, location: "제주" };
-user.age = 21;
-user.location = '부산';
-
-console.log(user);
+const changedUser = {
+    ...user,
+    age : 21,
+    name : "부산"
+}
+delete changedUser.location
+console.log(changedUser);
 
 // Quiz 16
 // 문자열을 객채형으로
