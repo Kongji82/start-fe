@@ -184,12 +184,8 @@ console.log(typeof(str))
 // Quiz 18
 // 새로운 배열 생성
 const items18 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let temp = []
-items18.forEach(item => {
-    if (item % 2 == 0){
-        temp.push(item)
-    }
-});
+let temp = items18.filter(a => a%2==0)
+
 console.log(temp)
 
 // Quiz 19
