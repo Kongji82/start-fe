@@ -10,6 +10,7 @@ var todayPhoto = [
 ];
 
 const $wrap = document.querySelector(`#wrap`);
+const $text = document.querySelector('#text');
 const $info = document.querySelector('.info');
 const $prev = document.querySelector('.prev');
 const $next = document.querySelector('.next');
@@ -26,19 +27,28 @@ function printItem(item) {
     $wrap.innerHTML += img;
 }
 
-// function printText(item) {
-//     const text = `
-//         ${item.title}
-//     `
-//     $wrap.innerHTML += text;
-// }
+function printText(item) {
+    const text = `
+        <span style="display: inline-block;
+        width: 100px;
+        white-space: normal;
+        ">${item.title}</span>
+    `
+    $wrap.innerHTML += text;
+}
 
 function printPage(page) {
     $wrap.innerHTML = '';
     $info.innerHTML = `${page}`;
     const startIndex = (page - 1) * listSize;
     for (let i = startIndex; i < listSize * page; i++) {
-      printItem(todayPhoto[i]);
+        if (i >= todayPhoto.length) continue;
+        printItem(todayPhoto[i]);
+    }
+    $wrap.innerHTML += '<br>';
+    for (let i = startIndex; i < listSize * page; i++) {
+        if (i >= todayPhoto.length) continue;
+        printText(todayPhoto[i]);
     }
     console.log(page);
 }
