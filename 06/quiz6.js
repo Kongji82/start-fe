@@ -15,10 +15,3 @@ $button.addEventListener('click', () => {
     }
     
 });
-
-
-function init(){
-    
-}
-
-init()
