@@ -1,6 +1,6 @@
 const $box = document.querySelector('.box');
+const $secondBox = document.querySelector('.box1');
 let isMouseDown = false;
-
 
 function mouseMove($component){
     if (isMouseDown) {
@@ -16,17 +16,21 @@ function mouseDownEvent($component) {
 function mouseUp($component){
     isMouseDown = false;
 }
+function boxSetup($component){
+    $component.addEventListener('mousemove', ()=> {
+        mouseMove($component);
+    });
+    $component.addEventListener('mousedown', ()=> {
+        mouseDownEvent($component);
+    });
+    $component.addEventListener('mouseup', ()=> {
+        mouseUp($component);
+    });
+}
 
 function init(){
-    $box.addEventListener('mousemove', ()=> {
-        mouseMove($box);
-    });
-    $box.addEventListener('mousedown', ()=> {
-        mouseDownEvent($box);
-    });
-    $box.addEventListener('mouseup', ()=> {
-        mouseUp($box);
-    });
+    boxSetup($box);
+    boxSetup($secondBox);
 }
 
 init();
