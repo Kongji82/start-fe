@@ -11,8 +11,16 @@ const pw = 'world';
 $btn.addEventListener('click', (e) => {
   e.preventDefault();
   if (id === $id.value && pw === $pw.value) {
-    $result.innerHTML = `<div class="success">Success</div>`;
+    const successMsg = document.createElement('div');
+    successMsg.classList.add('success');
+    successMsg.textContent = 'Success';
+    result.innerHTML = '';
+    result.appendChild(successMsg);
   } else {
-    $result.innerHTML = `<div class="error">Error</div>`;
+    const errorMsg = document.createElement('div');
+    errorMsg.classList.add('error');
+    errorMsg.textContent = 'Error';
+    result.innerHTML = '';
+    result.appendChild(errorMsg);
   }
 });
