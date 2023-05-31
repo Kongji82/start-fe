@@ -7,26 +7,31 @@ import fs from 'fs';
   });
   const page = await browser.newPage();
   await page.goto('https://www.melon.com/chart/');
-
   const songs = await page.evaluate(() => {
-    const songElements1 = document.querySelectorAll(
-      '#lst50 > td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a'
+    const songElements = Array.from(
+      document.querySelectorAll(
+        '#lst50 > td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a',
+        '#lst100 > td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a'
+      )
     );
-    const songElements2 = document.querySelectorAll(
-      '#lst50 > td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a'
+    // const songElements2 = document.querySelectorAll(
+    //   '#lst50 > td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a'
+    // );
+    const rankElements = Array.from(
+      document.querySelectorAll(
+        '#lst50 > td:nth-child(2) > div > span.rank',
+        '#lst100 > td:nth-child(2) > div > span.rank'
+      )
     );
-    const rankElements1 = document.querySelectorAll(
-      '#lst50 > td:nth-child(2) > div > span.rank'
-    );
-    const rankElements2 = document.querySelectorAll(
-      '#lst100 > td:nth-child(2) > div > span.rank'
-    );
-    const songElements = Array.from(songElements1).concat(
-      Array.from(songElements2)
-    );
-    const rankElements = Array.from(rankElements1).concat(
-      Array.from(rankElements2)
-    );
+    // const rankElements2 = document.querySelectorAll(
+    //   '#lst100 > td:nth-child(2) > div > span.rank'
+    // );
+    // const songElements = Array.from(songElements1).concat(
+    //   Array.from(songElements2)
+    // );
+    // const rankElements = Array.from(rankElements1).concat(
+    //   Array.from(rankElements2)
+    // );
 
     const songsData = [];
 
